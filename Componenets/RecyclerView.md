@@ -14,7 +14,7 @@ There are three main parts
 
 1. Create the Recycler view that will filled. If you're fragment is a single recycler, it can just be top level.
 
-`my_recycler_view.xml`
+### my_recycler_view.xml
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -30,7 +30,7 @@ There are three main parts
 
 2. Create a `Layout`. This displays each 'row'
 
-`my_simple_row.xml`
+### my_simple_row.xml
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -56,14 +56,14 @@ There are three main parts
 
 3. Create a class to hold your data. You could also just use a String.
 
-`Animal.kt`
+### Animal.kt
 
 ```kotlin
 data class Animal(val animalName:String)
 ```
 4. Create the `Adapter`
 
-`AnimalAdapter.kt`
+### AnimalAdapter.kt
 
 ```kotlin
 class AnimalAdapter : RecyclerView.Adapter<MyViewHolder>(){
@@ -100,7 +100,7 @@ class MyViewHolder (view: View) : RecyclerView.ViewHolder(view){
 
 5. Set it up to display!
 
-`MainActivity.kt`
+### MainActivity.kt
 
 ```kotlin
 class MainActivity : AppCompatActivity() {
