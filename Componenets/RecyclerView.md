@@ -77,10 +77,6 @@ class AnimalAdapter : RecyclerView.Adapter<MyViewHolder>(){
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(items[position],position)
     }
-    //==================================
-    fun addAnAnimal(animal:Animal){
-        items.add(animal)
-    }
 }
 // A single view that will be reused as things are scrolled around.
 // Implement how to update it as it moves around.
@@ -108,17 +104,15 @@ class MainActivity : AppCompatActivity() {
 
     fun loopAddItems(){
         Timer().schedule(500){
-            myAdapter.addAnAnimal(Animal("Item Added"))
-            // Usually will want to call for single item added or single item removed.
-            // notifyDataSetChanged is unoptimal, but used here for clarity.
-            runOnUiThread({myAdapter.notifyDataSetChanged()})
+            myAdapter.items.add(Animal("Item Added"))
+            val newItemPosition = myAdapter.items.size - 1
+            runOnUiThread({myAdapter.notifyItemInserted(newItemPosition)})
             loopAddItems()
         }
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(my_recycler_view)
-        myAdapter.addAnAnimal(Animal("FIRST"))
         id_recycler_reference.adapter = myAdapter
         id_recycler_reference.layoutManager = LinearLayoutManager(this)
         loopAddItems()
