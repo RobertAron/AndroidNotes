@@ -109,6 +109,8 @@ class MainActivity : AppCompatActivity() {
     fun loopAddItems(){
         Timer().schedule(500){
             myAdapter.addAnAnimal(Animal("Item Added"))
+            // Usually will want to call for single item added or single item removed.
+            // notifyDataSetChanged is unoptimal, but used here for clarity.
             runOnUiThread({myAdapter.notifyDataSetChanged()})
             loopAddItems()
         }
