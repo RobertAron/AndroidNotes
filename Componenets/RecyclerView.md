@@ -28,7 +28,7 @@ There are three main parts
 ```
 
 
-2. Create an our `Layout`. This displays each 'row'
+2. Create a `Layout`. This displays each 'row'
 
 `my_simple_row.xml`
 
