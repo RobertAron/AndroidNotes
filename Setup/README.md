@@ -29,6 +29,6 @@ Remove the action bar.
 </resources>
 ```
 
-Change Colors.
+### Change Colors.
 
-![Color reference](https://github.com/RobertAron/AndroidNotes/blob/master/res/color-notes.png)
+<img src="https://github.com/RobertAron/AndroidNotes/blob/master/res/color-notes.png" width="200" height="400" />
