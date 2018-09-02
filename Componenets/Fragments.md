@@ -1,7 +1,7 @@
 # Fragments
 
 
-### Fragment Setup
+#### 1. Fragment Setup
 
 Create a place where the fragment will be placed in the parents layout.
 
@@ -19,7 +19,7 @@ Create a place where the fragment will be placed in the parents layout.
 </LinearLayout>
 ```
 
-### Create Fragment XML
+#### 2. Create Fragment XML
 
 `fragment_my.xml`
 
@@ -39,7 +39,7 @@ Create a place where the fragment will be placed in the parents layout.
 </LinearLayout>
 ```
 
-### Setup Fragment Object.
+#### 3. Setup Fragment Object.
 
 1. Setup constants that will be used to cleanly place objects into `arguments`.
 2. `onCreateView` is used to actually create a view that is generated. Take arguments and apply them as needed.
@@ -78,7 +78,7 @@ class MyFragment : Fragment() {
 ```
 
 
-### Use the Fragment.
+#### 4. Use the Fragment.
 
 1. Instaniate the fragment.
 2. Use the supportFragmentManager to replace the fragment holder.
