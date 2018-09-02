@@ -10,6 +10,6 @@ Hi. This is my android notes repo that I use to keep code snippets and notes. If
 
 
 
-#### Chalenges:
+#### Challenges:
 
 1. Create an app that allows you to insert a twitch user and load their chat.
