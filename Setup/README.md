@@ -1,6 +1,11 @@
 ### build.gradle (Module:app)
-
-`implementation 'com.android.support:design:27.1.1'`
+```gradle
+dependencies {
+    ...
+    implementation 'com.android.support:design:27.1.1'
+    ...
+}
+```
 
 This will add features like `tools:showIn="navigation_view"` to xml.
 
