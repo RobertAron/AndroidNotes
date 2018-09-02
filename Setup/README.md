@@ -1,4 +1,10 @@
-# Change to Material Setup
+### build.gradle (Module:app)
+
+`implementation 'com.android.support:design:27.1.1'`
+
+This will add features like `tools:showIn="navigation_view"` to xml.
+
+### Change to Material Setup
 
 Remove the action bar.
 
@@ -20,4 +26,4 @@ Remove the action bar.
 
 Change Colors.
 
-![Color reference](../res/color-notes?raw=true)
+![Color reference](https://github.com/RobertAron/AndroidNotes/blob/master/res/color-notes.png)
