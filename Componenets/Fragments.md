@@ -97,3 +97,37 @@ class MainActivity : AppCompatActivity() {
     }
 }
 ```
+
+
+
+
+## Using Sidenav
+
+#### 1. Be careful of memeory leaks
+
+Setup the nav_view to have one of the nav's selected. Setup the fragment when the state hasn't existed before. Only do this if it's not reloading the state.
+
+```kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+    ...
+    if(savedInstanceState==null){
+        supportFragmentManager.beginTransaction().replace(fragment_container.id, FragmentChat()).commit()
+        nav_view.setCheckedItem(nav_menu_message)
+    }
+    ...
+}
+```
+
+#### 2. Switch Fragments on button presses.
+
+```kotlin
+override fun onNavigationItemSelected(item: MenuItem): Boolean {
+    when(item.itemId){
+        nav_menu_message -> {supportFragmentManager.beginTransaction().replace(fragment_container.id, FragmentChat()).commit()}
+        nav_menu_mail -> {supportFragmentManager.beginTransaction().replace(fragment_container.id, FragmentMail()).commit()}
+        nav_menu_money -> {supportFragmentManager.beginTransaction().replace(fragment_container.id, FragmentMoney()).commit()}
+    }
+    drawer_layout.closeDrawer(Gravity.START)
+    return true
+}
+```
