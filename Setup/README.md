@@ -1,4 +1,9 @@
-### build.gradle (Module:app)
+### Design Tools
+
+This will add features like `tools:showIn="navigation_view"` to xml.
+
+`build.gradle (Module: app)`
+
 ```gradle
 dependencies {
     ...
@@ -7,7 +12,18 @@ dependencies {
 }
 ```
 
-This will add features like `tools:showIn="navigation_view"` to xml.
+### Drawer navigation.
+
+`values/strings.xml`
+
+```xml
+<resources>
+    ...
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    ...
+</resources>
+```
 
 ### Change to Material Setup
 
