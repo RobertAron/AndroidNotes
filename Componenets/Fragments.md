@@ -99,7 +99,23 @@ class MainActivity : AppCompatActivity() {
 ```
 
 
+## Accessing Elements
 
+In order to access elements you will need to go through the view, unlike in normal activities.
+setup might look something like this
+```kotlin
+private lateinit var fragButton:Button
+private lateinit var fragEditText:EditText
+
+override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                            savedInstanceState: Bundle?): View? {
+    // Inflate the layout for this fragment
+    val fragView = inflater.inflate(R.layout.fragment_my, container, false)
+    fragButton = fragView.fragment_button
+    fragEditText = fragView.my_edit_text
+    return fragView
+}
+```
 
 ## Using Sidenav
 
