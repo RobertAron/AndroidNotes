@@ -147,3 +147,108 @@ override fun onNavigationItemSelected(item: MenuItem): Boolean {
     return true
 }
 ```
+
+## Passing in and out data
+
+A lot of the boilerplate is made for you if setup correclty. Here is a simple implementation though.
+
+
+#### 1. Setup the fragment XML
+
+
+`fragment_blank.xml`
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BlankFragment"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/fragment_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/fragment_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
+```
+#### 2. Setup the fragment
+
+1. The fragment will have an interface within it that the must be implmented by whatever calls it. That way it can get a reference it's parent and call the function.
+
+2. Get a reference to whatever objects you will need to continously edit in the `onCreateView`
+
+3. Make functions to edit those items
+
+4. Make functions that call the `listener` which is actually the parent obeject casted as the interface made.
+
+```kotlin
+class BlankFragment : Fragment() {
+    private var listener: FragmentExampleInterface? = null
+    private lateinit var editText: EditText
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        // Inflate the layout for this fragment
+        val v = inflater.inflate(R.layout.fragment_blank, container, false)
+        editText = v.fragment_edit_text
+        v.fragment_button.setOnClickListener{onButtonPressed()}
+        return v
+    }
+    fun onButtonPressed() {
+        listener?.updateAllFrags(editText.text.toString())
+    }
+    fun setEditText(inputString:String){
+        editText.setText(inputString)
+    }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is FragmentExampleInterface) {
+            listener = context
+        } else {
+            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
+    }
+    interface FragmentExampleInterface {
+        fun updateAllFrags(myString:String)
+    }
+}
+```
+
+
+#### 3. Setup the interface in the main class/use the fragments.
+
+
+```kotlin
+class MainActivity : AppCompatActivity(), BlankFragment.FragmentExampleInterface{
+    private lateinit var myFrag1:BlankFragment
+    private lateinit var myFrag2:BlankFragment
+
+    override fun updateAllFrags(myString: String) {
+        myFrag1.setEditText(myString)
+        myFrag2.setEditText(myString)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        myFrag1 = BlankFragment()
+        myFrag2 = BlankFragment()
+
+        supportFragmentManager.beginTransaction()
+                .replace(frag_placement1.id,myFrag1)
+                .replace(frag_placement2.id,myFrag2)
+                .commit()
+    }
+}
