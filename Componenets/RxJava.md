@@ -17,8 +17,10 @@ val names = arrayOf("bob", "bober", "bobest")
 
 Observable.from(names)
 ```
-<img src="https://github.com/RobertAron/AndroidNotes/blob/master/res/color-notes.png" width="500" height="200" />
-You can also `create` obersables. The three main functions in them are
+<img src="https://github.com/RobertAron/AndroidNotes/blob/master/res/rxCreate.png" width="500" height="120" />
+
+You can also `create` obersables. The three main functions in them are...
+
 1. onNext
 2. onComplete
 3. onError
@@ -108,7 +110,7 @@ implementation 'io.reactivex.rxjava2:rxjava:2.2.1'
 ```
 
 
-Lets disable a button for a few seconds
+#### Disable a button
 ```kotlin
 myButton.setOnClickListener {
     myButton.isEnabled = false
@@ -123,7 +125,9 @@ myButton.setOnClickListener {
 ```
 
 
-Basic network call. service.fetchResult() returns an obserable, which will run on the android main thread. Then when it is complete, the data can be passed onto the UI thread for use.
+#### Basic network call
+
+`service.fetchResult()` returns an obserable.
 
 ```kotlin
 service.fetchResult()
