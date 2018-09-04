@@ -89,10 +89,10 @@ Can unsubscribe from things
 ```kotlin
 val names = arrayOf("bob", "bober", "bobest")
 
-val sub: Subscription = Observable.from(names).subsribe(
+val dis: Disposable = Observable.from(names).subsribe(
     { next -> Log.d("MyLogTag","My data is $next")}
 )
-sub.unsubscribe()
+dis.unsubscribe()
 ```
 
 
