@@ -52,7 +52,7 @@ Observable.create<String> { s ->
 ```
 
 
-#### 2. Manipulate the Oberserbale
+#### 2. Manipulate the Observable
 
 You can merge some like `Oberserable.merge(obersable1,obersable2)`
 
