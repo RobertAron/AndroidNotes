@@ -138,3 +138,12 @@ service.fetchResult()
                 { error -> report_error(error) }
         )
 ```
+
+#### Dispose correctly on the lifecycle.
+
+```kotlin
+override fun onPause() {
+    super.onPause()
+    disposable?.dispose()
+}
+```
