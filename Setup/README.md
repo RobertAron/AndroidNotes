@@ -1,3 +1,12 @@
+### Permissions
+
+`AndroidManifest.xml`
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+
 ### Design Tools
 
 This will add features like `tools:showIn="navigation_view"` to xml.
@@ -8,10 +17,11 @@ This will add features like `tools:showIn="navigation_view"` to xml.
 dependencies {
     ...
     implementation 'com.android.support:design:27.1.1'
-    
+    implementation 'com.android.support:cardview-v7:27.1.1'
+
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.1'
-    
+
     implementation "com.squareup.retrofit2:retrofit:2.4.0"
     implementation "com.squareup.retrofit2:converter-gson:2.3.0"
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
