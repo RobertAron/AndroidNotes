@@ -53,6 +53,7 @@ Remove the action bar.
         <item name="colorPrimary">#3F51B5</item>
         <item name="colorPrimaryDark">#3949AB</item>
         <item name="colorAccent">#00B0FF</item>
+        <item name="cardViewStyle">@style/CardView</item>
     </style>
 </resources>
 ```
