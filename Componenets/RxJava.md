@@ -27,7 +27,7 @@ You can also `create` obersables. The three main functions in them are...
 
 There is also `doOnNext` which is useful for loging things 
 ```kotlin
-Observable.create<String> { subscriber
+Observable.create<String> { subscriber ->
     val myString1 = veryTimeconsumingFunction()
     subscriber.onNext(myString1)
     val myString2 = otherVeryTimeconsumingFunction()
