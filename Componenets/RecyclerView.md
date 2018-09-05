@@ -140,3 +140,40 @@ import kotlinx.android.synthetic.main.my_recycler_view.id_recycler_reference
 ```
 
 ![recycler example](https://github.com/RobertAron/AndroidNotes/blob/master/res/recycler_example.gif)
+
+
+### RecyclerAdapterTemplate
+
+```kotlin
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME}#end
+
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+
+class ${NAME} : RecyclerView.Adapter<${Viewholder_Class}>(){
+    var items = emptyList<${Item_Class}>()
+    override fun getItemCount(): Int {
+        return items.size
+    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ${Viewholder_Class} {
+        return ${Viewholder_Class}(LayoutInflater.from(parent.context).inflate(/*TODO:: R.Layout.Reference*/, parent, false))
+    }
+    override fun onBindViewHolder(holder: ${Viewholder_Class}, position: Int) {
+        holder.bind(items[position])
+    }
+    fun addItems(newItem:${Item_Class}){
+        // TODO:: Implement data modifiers
+        // TODO:: Avoid notifyDataSetChanged()
+    }
+}
+
+class ${Viewholder_Class}(view: View) : RecyclerView.ViewHolder(view){
+    // val textView = view.textView
+    
+    fun bind(item:${Item_Class}){
+        // textView.text = item.propery.toString()
+    }
+}
+```
